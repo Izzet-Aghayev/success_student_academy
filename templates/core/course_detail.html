@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}{{ course.title }}{% endblock %}
+{% block content %}
+<section class="bg-gradient-deep text-white pt-5 pt-sm-6 pt-md-7 pt-lg-8 pt-xl-9 pt-xxl-10 pb-5 pb-sm-6 pb-md-7 pb-lg-8 pb-xl-9 pb-xxl-10">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <nav aria-label="breadcrumb" class="mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'core:home' %}" style="color:#93c5fd;">Ana səhifə</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'core:courses' %}" style="color:#93c5fd;">Kurslar</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{ course.title }}</li>
+      </ol>
+    </nav>
+    <div class="row g-4 g-sm-5 g-md-5 g-lg-6 g-xl-6 align-items-center">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+        <span class="badge mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-4" style="background:rgba(255,255,255,.18);color:#fff;border-radius:999px;">{{ course.tag }}</span>
+        <h1 class="display-hero mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#fff;">{{ course.title }}</h1>
+        <p class="lead mb-0" style="color:#e0e7ff;max-width:760px;">{{ course.summary }}</p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="glass-light p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-5 text-center">
+          <div class="small text-uppercase mb-2" style="letter-spacing:0.1em;color:#64748b;">Müddət</div>
+          <div class="h2 fw-bold mb-3 text-gradient">{{ course.duration }}</div>
+          <a href="{% url 'core:registration' %}" class="btn btn-primary w-100 d-block">Bu kursa qeyd ol</a>
+          <a href="{% url 'core:contact' %}" class="btn btn-outline-primary w-100 d-block mt-2">Sual ver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-4 g-sm-5 g-md-5 g-lg-6 g-xl-6">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+        <h2 class="section-title mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5">Nə <span class="text-gradient">öyrənəcəksiniz</span></h2>
+        <div class="card card-ssa">
+          <div class="card-body p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6">
+            <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+              {% for topic in course.topics %}
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="d-flex gap-3 align-items-start">
+                  <span class="feature-icon flex-shrink-0" style="width:44px;height:44px;border-radius:12px;font-size:1rem;">✓</span>
+                  <div>
+                    <div class="fw-semibold" style="color:#0f172a;">Modul {{ forloop.counter }}</div>
+                    <div class="text-muted">{{ topic }}</div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title mt-5 mt-sm-6 mt-md-7 mt-lg-8 mt-xl-9 mt-xxl-10 mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5">Bu kurs <span class="text-gradient">kim üçündür</span></h2>
+        <div class="card card-ssa">
+          <div class="card-body p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6">
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+              <li class="d-flex gap-3"><span class="feature-icon" style="width:40px;height:40px;border-radius:12px;font-size:0.9rem;">🎓</span><div>Rəsmi sınaqlarda və ya daxili qiymətləndirmələrdə yüksək bal hədəfləyən tələbələr.</div></li>
+              <li class="d-flex gap-3"><span class="feature-icon" style="width:40px;height:40px;border-radius:12px;font-size:0.9rem;">🧩</span><div>Yalnız əzbərləmədən kənar, anlayışla öyrənmək istəyən öyrənənlər.</div></li>
+              <li class="d-flex gap-3"><span class="feature-icon" style="width:40px;height:40px;border-radius:12px;font-size:0.9rem;">🤝</span><div>Mentorluq, şəffaflıq və müntəzəm rəyi qiymətləndirən ailələr.</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="glass-light p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 sticky-top" style="top:90px;">
+          <h3 class="h4 fw-bold mb-3">Başlamağa hazırsınız?</h3>
+          <p class="mb-4 text-muted">Yerinizi indi ayırtın. Kiçik sinif ölçülərinə görə yerlər ilkin gələnə görə doldurulur.</p>
+          <a href="{% url 'core:registration' %}" class="btn btn-primary w-100 d-block mb-2">İndi qeyd ol</a>
+          <a href="{% url 'core:contact' %}" class="btn btn-outline-primary w-100 d-block mb-4">Məşvərət zəngi təyin et</a>
+          <div class="small text-muted">
+            <div class="d-flex align-items-center gap-2 mb-2">✔️ Kiçik sinif ölçüləri</div>
+            <div class="d-flex align-items-center gap-2 mb-2">✔️ Aylıq irəliləyiş hesabatları</div>
+            <div class="d-flex align-items-center gap-2 mb-2">✔️ Səbət ayrılmış mentor</div>
+            <div class="d-flex align-items-center gap-2">✔️ İlk ay pul iadə zəmanəti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

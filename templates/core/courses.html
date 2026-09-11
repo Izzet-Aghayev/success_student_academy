@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Kurslar{% endblock %}
+{% block content %}
+<section class="bg-gradient-deep text-white pt-5 pt-sm-6 pt-md-7 pt-lg-8 pt-xl-9 pt-xxl-10 pb-5 pb-sm-6 pb-md-7 pb-lg-8 pb-xl-9 pb-xxl-10">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="text-center mx-auto" style="max-width:780px;">
+      <h1 class="display-hero mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#fff;">
+        Kurslarımızı <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;">kəşf edin</span>
+      </h1>
+      <p class="lead mb-0" style="color:#e0e7ff;">
+        Dil sınaqlarından dərin STEM treklərinə qədər — hər yaş və hər hədəf üçün uyğun proqram tapın.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+      {% for course in courses %}
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
+        <article class="card card-ssa d-flex flex-column">
+          <div class="bg-gradient-deep p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 text-white">
+            <span class="badge mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-3" style="background:rgba(255,255,255,.18);color:#fff;border-radius:999px;">{{ course.tag }}</span>
+            <h3 class="h4 fw-bold mb-0" style="color:#fff;">{{ course.title }}</h3>
+          </div>
+          <div class="card-body d-flex flex-column flex-grow-1">
+            <p class="mb-3 text-muted" style="line-height:1.7;">{{ course.summary }}</p>
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2">
+              {% for topic in course.topics %}
+              <li class="d-flex align-items-start gap-2 small">
+                <span style="color:#1e3a8a;">✓</span>
+                <span style="color:#334155;">{{ topic }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+            <div class="mt-auto d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <span class="small text-muted">⏱ {{ course.duration }}</span>
+              <a href="{% url 'core:course_detail' course.slug %}" class="btn btn-primary">Ətraflı</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-5 mt-sm-6 mt-md-7 mt-lg-8 mt-xl-9 mt-xxl-10">
+      <div class="cta-band">
+        <div class="row g-4 g-sm-4 g-md-5 align-items-center">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+            <h3 class="h1 fw-bold mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-4" style="color:#fff;">Hansı proqramı seçəcəyinizə əmin deyilsiniz?</h3>
+            <p class="lead mb-0" style="color:#dbeafe;">Pulsuz 30 dəqiqəlik diaqnostik sessiya təyin edin. Məşvərətçilərimiz uşağınız üçün ən uyğun treki seçəcək.</p>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-wrap gap-2 gap-sm-3 justify-content-start justify-content-sm-start justify-content-md-start justify-content-lg-end">
+            <a href="{% url 'core:registration' %}" class="btn btn-lg" style="background:#fff;color:#1e3a8a;font-weight:700;border-radius:14px;padding:0.85rem 1.6rem;">İndi başla</a>
+            <a href="{% url 'core:contact' %}" class="btn btn-lg" style="color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:14px;padding:0.85rem 1.6rem;">Məşvərətçi ilə söhbət</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

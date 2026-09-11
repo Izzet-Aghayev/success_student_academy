@@ -1,0 +1,25 @@
+<nav class="navbar navbar-ssa navbar-expand-lg bg-transparent position-sticky top-0 z-3">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <a class="navbar-brand navbar-brand-ssa d-flex align-items-center" href="{% url 'core:home' %}">
+      <span style="width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,#1e3a8a,#60a5fa);color:#fff;font-weight:800;">S</span>
+      <span class="text-gradient">SUCCESS STUDENT ACADEMY</span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#ssa-nav" aria-controls="ssa-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ssa-nav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-0 gap-sm-0 gap-md-0 gap-lg-2">
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:home' %}">Ana səhifə</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:about' %}">Haqqımızda</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:courses' %}">Kurslar</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:teachers' %}">Müəllimlər</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:gallery' %}">Qalereya</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ssa" href="{% url 'core:contact' %}">Əlaqə</a></li>
+      </ul>
+      <div class="d-flex gap-2 mt-3 mt-lg-0 flex-wrap">
+        <a href="{% url 'core:feedback' %}" class="btn btn-outline-primary">Rəy Bildir</a>
+        <a href="{% url 'core:registration' %}" class="btn btn-primary">Qeydiyyat</a>
+      </div>
+    </div>
+  </div>
+</nav>

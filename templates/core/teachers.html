@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Müəllimlər{% endblock %}
+{% block content %}
+<section class="bg-gradient-deep text-white pt-5 pt-sm-6 pt-md-7 pt-lg-8 pt-xl-9 pt-xxl-10 pb-5 pb-sm-6 pb-md-7 pb-lg-8 pb-xl-9 pb-xxl-10">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="text-center mx-auto" style="max-width:780px;">
+      <h1 class="display-hero mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#fff;">
+        Peşəkar <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;">müəllimlərimiz</span>lə tanış olun
+      </h1>
+      <p class="lead mb-0" style="color:#e0e7ff;">
+        Dünya səviyyəli pedagoglar, həvəsli mentorlar və uğur yolunuzda tərəfdaşlarınız.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+      {% for teacher in teachers %}
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa text-center">
+          <div class="card-body p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6">
+            <div class="teacher-photo mb-3">{{ teacher.initials }}</div>
+            <h4 class="h5 fw-bold mb-1" style="color:#0f172a;">{{ teacher.name }}</h4>
+            <div class="small mb-3 fw-semibold text-primary">{{ teacher.role }}</div>
+            <p class="mb-0 text-muted" style="line-height:1.7;">{{ teacher.bio }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-5 mt-sm-6 mt-md-7 mt-lg-8 mt-xl-9 mt-xxl-10">
+      <div class="cta-band">
+        <div class="row g-4 g-sm-4 g-md-5 align-items-center">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+            <h3 class="h1 fw-bold mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-4" style="color:#fff;">Müəllimlə şəxsən tanış olmaq istəyirsiniz?</h3>
+            <p class="lead mb-0" style="color:#dbeafe;">Qeydiyyatdan əvvəl istənilən müəllimlə pulsuz sınaq dərsi təyin edin.</p>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-wrap gap-2 gap-sm-3 justify-content-start justify-content-sm-start justify-content-md-start justify-content-lg-end">
+            <a href="{% url 'core:registration' %}" class="btn btn-lg" style="background:#fff;color:#1e3a8a;font-weight:700;border-radius:14px;padding:0.85rem 1.6rem;">Sınaq dərsi təyin et</a>
+            <a href="{% url 'core:contact' %}" class="btn btn-lg" style="color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:14px;padding:0.85rem 1.6rem;">Adminlə söhbət</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Rəy Bildir{% endblock %}
+{% block content %}
+<section class="bg-gradient-deep text-white pt-5 pt-sm-6 pt-md-7 pt-lg-8 pt-xl-9 pt-xxl-10 pb-5 pb-sm-6 pb-md-7 pb-lg-8 pb-xl-9 pb-xxl-10">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="text-center mx-auto" style="max-width:780px;">
+      <h1 class="display-hero mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#fff;">
+        Rəyinizi <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;">paylaşın</span>
+      </h1>
+      <p class="lead mb-0" style="color:#e0e7ff;">
+        Sizin səsiniz bizim tədrisimizə formalaşdırır. Bütün göndərişlər rəhbərlik heyəti tərəfindən incələnir və şəxsən cavablandırılır.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="success">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-4 g-sm-5 g-md-5 g-lg-6 g-xl-6">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
+        <div class="form-card">
+          <h2 class="section-title mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5">Sizdən eşitmək istəyirik</h2>
+          <form method="post" action="{% url 'core:feedback' %}#success" novalidate data-ssa-submit>
+            {% csrf_token %}
+            <div class="row g-3 g-sm-3 g-md-4">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">{{ form.rey_metni|as_crispy_field }}</div>
+            </div>
+            <div class="mt-4 mt-sm-5 mt-md-5 mt-lg-5 mt-xl-5 mt-xxl-5 d-flex flex-wrap gap-2 gap-sm-3">
+              <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Göndərilir...">Rəyi göndər</button>
+              <a href="{% url 'core:home' %}" class="btn btn-outline-primary btn-lg">Ana səhifəyə qayıt</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5">
+        <div class="glass-light p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 sticky-top" style="top:90px;">
+          <h3 class="h4 fw-bold mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5">Rəyinizdən necə istifadə edirik</h3>
+          <ul class="list-unstyled d-flex flex-column gap-3 gap-sm-3 gap-md-4 mb-5">
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon" style="width:44px;height:44px;border-radius:12px;font-size:1rem;">🧐</span>
+              <div>
+                <b class="d-block">Rəhbərlik tərəfindən baxılır</b>
+                <span class="text-muted small">Hər bir element Akademiya Direktoru və şöbə rəisləri tərəfindən oxunur.</span>
+              </div>
+            </li>
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon" style="width:44px;height:44px;border-radius:12px;font-size:1rem;">⚡</span>
+              <div>
+                <b class="d-block">Anında bildiriş</b>
+                <span class="text-muted small">Qəbul və idarəetmə Telegram və E-poçtla məlumat alır.</span>
+              </div>
+            </li>
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon" style="width:44px;height:44px;border-radius:12px;font-size:1rem;">💬</span>
+              <div>
+                <b class="d-block">Şəxsən cavablandırırıq</b>
+                <span class="text-muted small">Həll tələb edən məsələlər üçün 48 saat ərzində geri dönüş.</span>
+              </div>
+            </li>
+          </ul>
+          <div class="d-grid gap-2">
+            <a href="{% url 'core:registration' %}" class="btn btn-primary">Əvəzində uşağınızı qeyd edin</a>
+            <a href="{% url 'core:contact' %}" class="btn btn-outline-primary">Əlaqə üçün digər yollar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

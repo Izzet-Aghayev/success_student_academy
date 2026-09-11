@@ -1,0 +1,49 @@
+<footer class="footer-ssa mt-auto">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-4 g-sm-4 g-md-5 g-lg-5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,#1e3a8a,#60a5fa);color:#fff;font-weight:800;">S</span>
+          <h5 class="mb-0" style="color:#fff;">SUCCESS STUDENT ACADEMY</h5>
+        </div>
+        <p style="color:#94a3b8;line-height:1.7;">
+          Tələbələrə yüksək keyfiyyətli təhsil, peşəkar mentorluq və
+          sınaq uğuru ilə bağlı 15 ildir xidmət göstəririk.
+        </p>
+      </div>
+      <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+        <h5>Keşfedin</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2">
+          <li><a href="{% url 'core:home' %}">Ana səhifə</a></li>
+          <li><a href="{% url 'core:about' %}">Haqqımızda</a></li>
+          <li><a href="{% url 'core:courses' %}">Kurslar</a></li>
+          <li><a href="{% url 'core:teachers' %}">Müəllimlər</a></li>
+          <li><a href="{% url 'core:gallery' %}">Qalereya</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+        <h5>Sürətli keçid</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2">
+          <li><a href="{% url 'core:registration' %}">Tələbə Qeydiyyatı</a></li>
+          <li><a href="{% url 'core:feedback' %}">Rəy Bildirin</a></li>
+          <li><a href="{% url 'core:contact' %}">Əlaqə</a></li>
+          <li><a href="/admin/">Personel Girişi</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3">
+        <h5>Bizimlə əlaqə</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2" style="color:#94a3b8;">
+          <li>📍 Bakı, Azərbaycan</li>
+          <li>📞 <a href="tel:0513171409">051 317 14 09</a></li>
+          <li>✉️ <a href="mailto:agayevizzet56@gmail.com">agayevizzet56@gmail.com</a></li>
+          <li>📸 <a href="https://instagram.com/dovlet.qulluquna.hazirliq7154" target="_blank" rel="noopener">@dovlet.qulluquna.hazirliq7154</a></li>
+          <li>✈️ <a href="https://t.me/success_student_academy" target="_blank" rel="noopener">success_student_academy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center text-sm-start d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5">
+      <div>© {% now "Y" %} SUCCESS STUDENT ACADEMY. Bütün hüquqlar qorunur.</div>
+      <div class="mt-2 mt-sm-0">Tələbə uğuru üçün <span style="color:#60a5fa;">♥</span> ilə quruldu.</div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Qalereya{% endblock %}
+{% block content %}
+<section class="bg-gradient-deep text-white pt-5 pt-sm-6 pt-md-7 pt-lg-8 pt-xl-9 pt-xxl-10 pb-5 pb-sm-6 pb-md-7 pb-lg-8 pb-xl-9 pb-xxl-10">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="text-center mx-auto" style="max-width:780px;">
+      <h1 class="display-hero mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#fff;">
+        Akademiya <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;">içərisindən</span>
+      </h1>
+      <p class="lead mb-0" style="color:#e0e7ff;">
+        Enerjili siniflərimiz, laboratoriyalar və SUCCESS-i unudulmaz edən anların görüntüləri.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-3 g-sm-3 g-md-4 g-lg-4 g-xl-5">
+      {% for image in images %}
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <figure class="gallery-item mb-0">
+          <img src="{{ image.url }}" alt="{{ image.caption }}" loading="lazy" />
+          <figcaption class="position-absolute bottom-0 start-0 end-0 p-3 p-sm-3 p-md-4 p-lg-4 p-xl-4 p-xxl-4 text-white small fw-semibold" style="background:linear-gradient(to top,rgba(15,23,42,.85),transparent);">
+            {{ image.caption }}
+          </figcaption>
+        </figure>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-5 mt-sm-6 mt-md-7 mt-lg-8 mt-xl-9 mt-xxl-10">
+      <a href="{% url 'core:registration' %}" class="btn btn-primary btn-lg">Gəlin ziyarət edin — bugün qeyd olun</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% block title %}Ana səhifə{% endblock %}
+{% block content %}
+<section class="hero-wrap bg-gradient-deep text-white">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="row g-4 g-sm-5 g-md-5 g-lg-6 g-xl-6 align-items-center">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
+        <div class="glass p-3 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6">
+          <span class="badge text-white d-inline-flex align-items-center gap-2 border" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.25);border-radius:999px;padding:8px 14px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2);"></span>
+            2026 üçün qeydiyyat açıqdır — Məhdud yerlər
+          </span>
+          <h1 class="display-hero mt-3 mt-sm-4 mt-md-5 mt-lg-5 mt-xl-5 mt-xxl-6 mb-3 mb-sm-4 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-5" style="color:#fff;">
+            Ən yaxşı akademik gələcəyinizi <span style="background:linear-gradient(135deg,#fde68a,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;">aşkar edin</span>
+          </h1>
+          <p class="lead mb-4 mb-sm-5 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-6" style="color:#e0e7ff;max-width:620px;">
+            SUCCESS STUDENT ACADEMY-ə qoşulun — Magistr, Dövlət qulluğu, SAT, IELTS, Riyaziyyat və daha bir çox proqramda peşəkar müəllimlərdən təhsil alın.
+          </p>
+          <div class="d-flex flex-wrap gap-2 gap-sm-3 gap-md-3 gap-lg-4">
+            <a href="{% url 'core:registration' %}" class="btn btn-lg btn-primary" style="background:#fff;color:#1e3a8a;border-color:#fff;">
+              Qeydiyyata başla →
+            </a>
+            <a href="{% url 'core:courses' %}" class="btn btn-lg btn-outline-primary" style="color:#fff;border-color:rgba(255,255,255,.5);">
+              Kurslara bax
+            </a>
+          </div>
+          <div class="d-flex flex-wrap gap-3 gap-sm-4 gap-md-5 mt-4 mt-sm-5 mt-md-6 mt-lg-6 mt-xl-6 mt-xxl-7">
+            <div><div class="stat-num" style="color:#fff;">98%</div><div class="stat-label" style="color:#c7d2fe;">İmtahan uğuru</div></div>
+            <div><div class="stat-num" style="color:#fff;">2.5K+</div><div class="stat-label" style="color:#c7d2fe;">Xoşbəxt tələbə</div></div>
+            <div><div class="stat-num" style="color:#fff;">15il</div><div class="stat-label" style="color:#c7d2fe;">Təcrübə</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5">
+        <div class="glass-light p-3 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6">
+          <h3 class="h3 mb-3 mb-sm-4 mb-md-4 mb-lg-4 mb-xl-4 mb-xxl-5" style="color:#0f172a;">
+            Niyə tələbələr <span class="text-gradient">bizi seçir</span>
+          </h3>
+          <ul class="list-unstyled d-flex flex-column gap-3 gap-sm-3 gap-md-4">
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon flex-shrink-0">🏆</span>
+              <div>
+                <div class="fw-semibold" style="color:#0f172a;">Sınaq nəticələri</div>
+                <div class="small text-muted">Orta +280 bal artım.</div>
+              </div>
+            </li>
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon flex-shrink-0">👩‍🏫</span>
+              <div>
+                <div class="fw-semibold" style="color:#0f172a;">Peşəkar müəllimlər</div>
+                <div class="small text-muted">Sertifikatlı, həvəsli və əlçatan.</div>
+              </div>
+            </li>
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon flex-shrink-0">🧪</span>
+              <div>
+                <div class="fw-semibold" style="color:#0f172a;">Müasir laboratoriyalar</div>
+                <div class="small text-muted">Fizika, robotika və rəqəmsal platforma.</div>
+              </div>
+            </li>
+            <li class="d-flex gap-3 align-items-start">
+              <span class="feature-icon flex-shrink-0">🤝</span>
+              <div>
+                <div class="fw-semibold" style="color:#0f172a;">Mentorluq & Ailə</div>
+                <div class="small text-muted">Valideynlərlə əməkdaşlıq edirik.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-soft">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="section-head text-center">
+      <h2 class="section-title">Əsas <span class="text-gradient">üstünlüklərimiz</span></h2>
+      <p class="section-sub mb-0">Hər tələbənin maksimum potensialına çatması üçün hər şey.</p>
+    </div>
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">📘</div>
+            <h4 class="h5 fw-bold mb-2">Strukturlaşdırılmış Kurikulum</h4>
+            <p class="mb-0 text-muted">Sınaqlarla uyğunlaşdırılmış və həftəlik hədəflər.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">📊</div>
+            <h4 class="h5 fw-bold mb-2">İrəvan Analitikası</h4>
+            <p class="mb-0 text-muted">Aylıq performans hesabatları valideynlərlə paylaşılır.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">🎯</div>
+            <h4 class="h5 fw-bold mb-2">Kiçik Siniflər</h4>
+            <p class="mb-0 text-muted">12–16 tələbə — şəxsi diqqət və fokus.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">⏰</div>
+            <h4 class="h5 fw-bold mb-2">Çevik Cədvəl</h4>
+            <p class="mb-0 text-muted">Həftə içi, həftə sonu və yay intensiv seçimlər.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">🧑‍💻</div>
+            <h4 class="h5 fw-bold mb-2">Rəqəmsal Məşq Mərkəzi</h4>
+            <p class="mb-0 text-muted">Minlərlə mövzu üzrə test və sınaq imtahanları.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card card-ssa">
+          <div class="card-body">
+            <div class="feature-icon mb-3">💬</div>
+            <h4 class="h5 fw-bold mb-2">Bire-Bir Mentorluq</h4>
+            <p class="mb-0 text-muted">Həftəlik məsləhət seansları — motivasiya və izləmə.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="section-head text-center">
+      <h2 class="section-title">Akademiya <span class="text-gradient">rəqəmlərdə</span></h2>
+      <p class="section-sub mb-0">15 illik davamlı mükəmməllik.</p>
+    </div>
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5 justify-content-center">
+      {% for _, num, label in stats %}
+      <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+        <div class="glass-light text-center p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-5">
+          <div class="stat-num">{{ num }}</div>
+          <div class="stat-label">{{ label }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-soft">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="section-head text-center">
+      <h2 class="section-title">Populyar <span class="text-gradient">Kurslar</span></h2>
+      <p class="section-sub mb-0">Tələbələrimizin ən çox seçdiyi proqramlar.</p>
+    </div>
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <article class="card card-ssa d-flex flex-column">
+          <div class="bg-gradient-deep p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 text-white">
+            <span class="badge mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-3" style="background:rgba(255,255,255,.18);color:#fff;border-radius:999px;">Universitet</span>
+            <h3 class="h4 fw-bold mb-0" style="color:#fff;">Magistr hazırlığı</h3>
+          </div>
+          <div class="card-body d-flex flex-column flex-grow-1">
+            <p class="mb-3 text-muted" style="line-height:1.7;">Magistratura qəbul imtahanlarına tam hazırlıq — diaqnostikadan son yoxlamalara qədər.</p>
+            <div class="mt-auto d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <span class="small text-muted">⏱ 6 ay</span>
+              <a href="{% url 'core:course_detail' 'magistr-hazirligi' %}" class="btn btn-primary">Ətraflı</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <article class="card card-ssa d-flex flex-column">
+          <div class="bg-gradient-deep p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 text-white">
+            <span class="badge mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-3" style="background:rgba(255,255,255,.18);color:#fff;border-radius:999px;">Karyera</span>
+            <h3 class="h4 fw-bold mb-0" style="color:#fff;">Dövlət qulluğu hazırlığı</h3>
+          </div>
+          <div class="card-body d-flex flex-column flex-grow-1">
+            <p class="mb-3 text-muted" style="line-height:1.7;">ASAN və DİM sınaqları üçün məntiq, riyaziyyat, ümumi biliklər və Azərbaycan dili ilə hazırlıq.</p>
+            <div class="mt-auto d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <span class="small text-muted">⏱ 4 ay</span>
+              <a href="{% url 'core:course_detail' 'dovlet-qullugu-hazirligi' %}" class="btn btn-primary">Ətraflı</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <article class="card card-ssa d-flex flex-column">
+          <div class="bg-gradient-deep p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5 p-xxl-6 text-white">
+            <span class="badge mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-3" style="background:rgba(255,255,255,.18);color:#fff;border-radius:999px;">Dil</span>
+            <h3 class="h4 fw-bold mb-0" style="color:#fff;">İngilis dili</h3>
+          </div>
+          <div class="card-body d-flex flex-column flex-grow-1">
+            <p class="mb-3 text-muted" style="line-height:1.7;">Gündəlik, akademik və imtahan uğuru üçün danışıq, qrammatika və yazma bacarıqları.</p>
+            <div class="mt-auto d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <span class="small text-muted">⏱ Hər dövr</span>
+              <a href="{% url 'core:course_detail' 'english' %}" class="btn btn-primary">Ətraflı</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="text-center mt-4 mt-sm-5 mt-md-5 mt-lg-5 mt-xl-5 mt-xxl-5">
+      <a href="{% url 'core:courses' %}" class="btn btn-primary btn-lg">Bütün kurslara bax</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-soft">
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="section-head text-center">
+      <h2 class="section-title">Tələbələrimizin <span class="text-gradient">rəyləri</span></h2>
+      <p class="section-sub mb-0">Real tələbələrdən real rəylər.</p>
+    </div>
+    <div class="row g-3 g-sm-4 g-md-4 g-lg-5">
+      {% for name, quote, rating in testimonials %}
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="testimonial-card">
+          <div class="testimonial-stars mb-3">
+            {% with ''|center:rating as range %}
+            {% for _ in range %}★{% endfor %}
+            {% endwith %}
+          </div>
+          <p class="fst-italic" style="color:#334155;line-height:1.7;">"{{ quote }}"</p>
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <span class="testimonial-avatar">{{ name|slice:":1" }}</span>
+            <div>
+              <div class="fw-semibold" style="color:#0f172a;">{{ name }}</div>
+              <div class="small text-muted">SUCCESS tələbəsi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
+    <div class="cta-band">
+      <div class="row g-4 g-sm-4 g-md-5 align-items-center">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+          <h3 class="h1 fw-bold mb-2 mb-sm-3 mb-md-3 mb-lg-3 mb-xl-3 mb-xxl-4" style="color:#fff;">Uğur hekayənizə başlamağa hazırsınız?</h3>
+          <p class="lead mb-0" style="color:#dbeafe;">Pulsuz məsləhət alın və ya bugün qeydiyyatdan keçin. Məşvərətçi 24 saat ərzində sizinlə əlaqə saxlayacaq.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-wrap gap-2 gap-sm-3 justify-content-start justify-content-sm-start justify-content-md-start justify-content-lg-end">
+          <a href="{% url 'core:registration' %}" class="btn btn-lg" style="background:#fff;color:#1e3a8a;font-weight:700;border-radius:14px;padding:0.85rem 1.6rem;">İndi qeyd ol</a>
+          <a href="{% url 'core:contact' %}" class="btn btn-lg" style="color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:14px;padding:0.85rem 1.6rem;">Bizimlə əlaqə</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
