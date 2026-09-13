@@ -98,20 +98,29 @@ TIME_ZONE = 'Europe/Istanbul'
 USE_I18N = True
 USE_TZ = True
 
+# ==============================================================================
+# STATIC & MEDIA FILES CONFIGURATION (Vercel-Optimized)
+# ==============================================================================
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Bu hissəni boş array edin ki, collectstatic zamanı sonsuz dövrə girməsin və Vercel çaşmasın
-STATICFILES_DIRS = []
+# Vercel-in həm lokalda, həm canlıda faylları dəqiq tapa bilməsi üçün:
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-# Təhlükəsiz və stabil WhiteNoise anbarı
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Vercel-in Read-Only fayl sistemində heç vaxt bloklanmayan standart Django storage növü:
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==============================================================================
+# CRISPY FORMS & MESSAGES CONFIGURATION
+# ==============================================================================
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -126,7 +135,11 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+# ==============================================================================
+# EMAIL & THIRD-PARTY INTEGRATIONS (ENV Sourced)
+# ==============================================================================
+
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.example.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1', 'yes')
@@ -139,5 +152,5 @@ CONTACT_EMAIL_RECIPIENT = os.getenv('CONTACT_EMAIL_RECIPIENT', DEFAULT_FROM_EMAI
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
-# Vercel-də statik faylların oxunması üçün təhlükəsizlik sazlamaları
+# Vercel-də kənar linklərin (Bootstrap CDN) təhlükəsizlik blokuna düşməməsi üçün:
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
