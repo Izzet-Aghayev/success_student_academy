@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import pymysql
 
 from dotenv import load_dotenv
 
@@ -81,6 +82,9 @@ else:
             },
         }
     }
+
+pymysql.version_info = (1, 4, 3, "final", 0)
+pymysql.install_as_MySQLdb()
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
