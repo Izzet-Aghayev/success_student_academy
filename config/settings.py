@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import pymysql
 
 from dotenv import load_dotenv
 
@@ -83,9 +82,6 @@ else:
         }
     }
 
-pymysql.version_info = (1, 4, 3, "final", 0)
-pymysql.install_as_MySQLdb()
-
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -113,7 +109,7 @@ STATICFILES_DIRS = [
 # Vercel-in Read-Only fayl sistemində heç vaxt bloklanmayan standart Django storage növü:
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
