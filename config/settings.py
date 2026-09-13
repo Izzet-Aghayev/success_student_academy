@@ -99,13 +99,13 @@ USE_I18N = True
 USE_TZ = True
 
 
-# settings.py faylının həmin qarışıq hissəsini tam olaraq bu təmiz kodla əvəz edin:
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# Vercel-də 100% stabil işləyən və xəta verməyən WhiteNoise anbarı
+# Bu hissəni boş array edin ki, collectstatic zamanı sonsuz dövrə girməsin və Vercel çaşmasın
+STATICFILES_DIRS = []
+
+# Təhlükəsiz və stabil WhiteNoise anbarı
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = 'media/'
