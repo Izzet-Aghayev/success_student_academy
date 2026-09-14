@@ -1,7 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "django",
+  "framework": null,
+  "buildCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput",
+  "outputDirectory": "staticfiles",
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
+  "rewrites": [
+    { "source": "/static/(.*)", "destination": "/$1" },
+    { "source": "/((?!static/).*)", "destination": "/config/wsgi.py" }
+  ],
   "headers": [
     {
       "source": "/static/(.*\\.(?:css|js))",
