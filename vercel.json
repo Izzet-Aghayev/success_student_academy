@@ -1,12 +1,20 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput",
+  "buildCommand": "python manage.py collectstatic --noinput",
   "outputDirectory": "staticfiles",
+  "installCommand": "pip install -r requirements.txt",
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/static/(.*)", "destination": "/$1" },
-    { "source": "/((?!static/).*)", "destination": "/config/wsgi.py" }
+    {
+      "source": "/static/(.*)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/((?!static/).*)",
+      "destination": "/config/wsgi.py"
+    }
   ],
   "headers": [
     {
