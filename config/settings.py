@@ -102,17 +102,6 @@ USE_TZ = True
 # STATIC & MEDIA FILES CONFIGURATION (Vercel-Optimized)
 # ==============================================================================
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Vercel-in həm lokalda, həm canlıda faylları dəqiq tapa bilməsi üçün:
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-# Vercel-in Read-Only fayl sistemində heç vaxt bloklanmayan standart Django storage növü:
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -154,3 +143,24 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 # Vercel-də kənar linklərin (Bootstrap CDN) təhlükəsizlik blokuna düşməməsi üçün:
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Vercel-in həm lokalda, həm canlıda faylları dəqiq tapa bilməsi üçün:
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Vercel-in Read-Only fayl sistemində heç vaxt bloklanmayan standart Django storage növü:
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# Django 5.1 removed STATICFILES_STORAGE; STORAGES selects the runtime backend.
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': STATICFILES_STORAGE,
+    },
+}
