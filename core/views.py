@@ -30,43 +30,11 @@ STATIC_COURSES = [
         ),
         'topics': ['Məntiq və analitik təfəkkür', 'Riyaziyyat', 'Ümumi biliklər', 'Azərbaycan dili'],
     },
-    {
-        'slug': 'sat-prep',
-        'title': 'SAT Preparation',
-        'tag': 'University Prep',
-        'duration': '12 həftə',
-        'summary': (
-            'Intensive preparation for the SAT covering evidence-based reading, '
-            'writing, and math, with timed practice exams and personalized feedback.'
-        ),
-        'topics': ['Diagnostic assessment', 'Reading & Writing', 'Math deep dive', 'Full-length practice tests'],
-    },
-    {
-        'slug': 'ielts',
-        'title': 'IELTS Preparation',
-        'tag': 'Language Proficiency',
-        'duration': '10 həftə',
-        'summary': (
-            'Master all four IELTS sections — Listening, Reading, Writing, and Speaking — '
-            'with mock exams and native-level coaching.'
-        ),
-        'topics': ['Listening strategies', 'Academic Reading', 'Writing Task 1 & 2', 'Speaking interview prep'],
-    },
-    {
-        'slug': 'toefl',
-        'title': 'TOEFL iBT Preparation',
-        'tag': 'Language Proficiency',
-        'duration': '10 həftə',
-        'summary': (
-            'Targeted TOEFL iBT prep with integrated skills training for reading, listening, '
-            'speaking, and writing inside a computer-based environment.'
-        ),
-        'topics': ['Reading science passages', 'Listening note-taking', 'Speaking template mastery', 'Academic Writing'],
-    },
+    
     {
         'slug': 'math',
         'title': 'Riyaziyyat',
-        'tag': 'Orta və Ali Məktəb',
+        'tag': 'Orta Məktəb',
         'duration': 'Tam il',
         'summary': (
             'Algebra, həndəsə, triqonometriya və təxmini hesablamaların '
@@ -77,7 +45,7 @@ STATIC_COURSES = [
     {
         'slug': 'physics',
         'title': 'Fizika',
-        'tag': 'Orta və Ali Məktəb',
+        'tag': 'Orta Məktəb',
         'duration': 'Tam il',
         'summary': (
             'Mexanikadan müasir fizikaya qədər eksperimentlə dəstəklənmiş '
@@ -88,7 +56,7 @@ STATIC_COURSES = [
     {
         'slug': 'chemistry',
         'title': 'Kimya',
-        'tag': 'Orta və Ali Məktəb',
+        'tag': 'Orta Məktəb',
         'duration': 'Tam il',
         'summary': (
             'Ümumi, üzvi və analitik kimyanın dərin konseptual öyrədilməsi '
@@ -99,7 +67,7 @@ STATIC_COURSES = [
     {
         'slug': 'biology',
         'title': 'Biologiya',
-        'tag': 'Orta və Ali Məktəb',
+        'tag': 'Orta Məktəb',
         'duration': 'Tam il',
         'summary': (
             'Hüceyrə biologiyası, genetika, fiziologiya və ekologiyanın '
@@ -122,13 +90,24 @@ STATIC_COURSES = [
         'slug': 'coding',
         'title': 'Proqramlaşdırma',
         'tag': 'STEM',
-        'duration': '16 həftə',
+        'duration': '6 ay',
         'summary': (
             'Layihə əsaslı Python və Veb əsasları. Tələbələr real proqramlar '
             'və portfoliolar qurur, hesablamalı düşüncəyi öyrənirlər.'
         ),
         'topics': ['Python əsasları', 'Alqoritmlər', 'Veb əsasları (HTML/CSS/JS)', 'Başlanğıc layihəsi'],
     },
+    {
+        'slug': 'coding',
+        'title': 'STEAM',
+        'tag': 'STEM',
+        'duration': '6 ay',
+        'summary': (
+            'STEAM dərsləri elm, texnologiya, mühəndislik, incəsənət və riyaziyyat '
+            'sahələrini birləşdirən və şagirdlərə praktiki biliklər öyrədən müasir təhsil yanaşmadır.'
+        ),
+        'topics': ['🤖 Robototexnika ', '🛠️ Mühəndislik', '🎨 Dizayn', '🧮 Tətbiqi Riyaziyyat'],
+    }
 ]
 
 STATIC_TEACHERS = [
@@ -161,10 +140,10 @@ def _gallery_images():
 
 def home(request):
     stats = [
-        ('num', '2,500+', 'Tələbə'),
-        ('num', '98%', 'İmtahan Uğur Dərəcəsi'),
-        ('num', '45+', 'Peşəkar Müəllim'),
-        ('num', '15', 'İllik Təcrübə'),
+        ('num', '3K+', 'Tələbə'),
+        ('num', '90%', 'İmtahan Uğur Dərəcəsi'),
+        ('num', '25+', 'Peşəkar Müəllim'),
+        ('num', '8', 'İllik Təcrübə'),
     ]
     testimonials = [
         ('Emin M.', 'Magistratura imtahanında yüksək bal topladım. Müəllimlər həqiqətən və kifayət qədər diqqət edir.', 5),
