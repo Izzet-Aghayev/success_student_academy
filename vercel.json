@@ -5,13 +5,6 @@
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
   "cleanUrls": false,
   "trailingSlash": false,
-  "functions": {
-    "config/wsgi.py": {
-      "runtime": "@vercel/python@latest",
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "rewrites": [
     {
       "source": "/static/(.*)",
