@@ -2,7 +2,34 @@
 <nav class="navbar navbar-ssa navbar-expand-lg bg-transparent position-sticky top-0 z-3">
   <div class="container px-3 px-sm-4 px-md-5 px-lg-4 px-xl-5 px-xxl-5">
     <a class="navbar-brand navbar-brand-ssa d-flex align-items-center" href="{% url 'core:home' %}">
-      <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=exact%20logo%20emblem%20on%20pure%20white%20background%3A%20curved%20text%20SUCCESS%20STUDENT%20uppercase%20bold%20dark%20navy%20blue%20on%20top%20arc%2C%20ACADEMY%20uppercase%20bold%20terracotta%20orange%20brown%20on%20bottom%20arc%2C%20center%20minimal%20line%20art%20stick%20figure%20person%20with%20dark%20blue%20graduation%20mortarboard%20cap%20and%20tassel%2C%20holding%20open%20book%20with%20orange%20brown%20outline%2C%20right%20arm%20reaching%20up%20to%20small%20orange%20five%20pointed%20star%20top%20right%2C%20flat%202d%20minimalist%20education%20school%20logo%20with%20legs%20in%20v%20shape&image_size=square_hd" alt="SUCCESS STUDENT ACADEMY" style="width:52px;height:52px;object-fit:contain;" />
+      <svg viewBox="0 0 480 430" xmlns="http://www.w3.org/2000/svg" width="52" height="52" style="display:block;object-fit:contain;" aria-label="SUCCESS STUDENT ACADEMY" role="img">
+        <defs>
+          <path id="arcTop" d="M 60 215 A 180 180 0 0 1 420 215" fill="none" />
+          <path id="arcBot" d="M 90 305 A 160 160 0 0 0 390 305" fill="none" />
+        </defs>
+        <text font-family="Arial, sans-serif" font-weight="800" font-size="52" fill="#1e3a8a" letter-spacing="1">
+          <textPath href="#arcTop" startOffset="50%" text-anchor="middle">SUCCESS STUDENT</textPath>
+        </text>
+        <text font-family="Arial, sans-serif" font-weight="800" font-size="58" fill="#c4733a" letter-spacing="2">
+          <textPath href="#arcBot" startOffset="50%" text-anchor="middle">ACADEMY</textPath>
+        </text>
+        <path d="M 195 178 L 285 178 L 262 208 L 218 208 Z" fill="#1e3a8a" />
+        <rect x="203" y="163" width="74" height="22" fill="#1e3a8a" />
+        <path d="M 208 185 L 208 203 Q 212 210 218 208 L 222 214 Q 216 222 206 216 Z" fill="#1e3a8a" />
+        <circle cx="240" cy="232" r="26" fill="none" stroke="#1e3a8a" stroke-width="10" />
+        <path d="M 240 258 C 198 274 172 296 176 336 C 178 356 200 360 212 344 L 228 322 L 240 360 C 243 372 252 374 258 362 L 272 328 L 286 348 C 296 362 314 354 312 336 C 308 298 288 276 240 258 Z"
+              fill="none" stroke="#1e3a8a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 292 274 C 314 256 336 236 340 220 C 342 208 330 202 322 214 C 316 226 302 240 286 254"
+              fill="none" stroke="#1e3a8a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+        <rect x="222" y="330" width="36" height="6" fill="#1e3a8a" rx="1" />
+        <g>
+          <path d="M 170 292 L 170 360 L 240 342 L 310 360 L 310 292 L 240 310 Z"
+                fill="none" stroke="#c4733a" stroke-width="7" stroke-linejoin="round" />
+          <path d="M 178 296 L 236 308 M 244 308 L 302 296 M 178 356 L 236 344 M 244 344 L 302 356 M 240 310 L 240 342"
+                fill="none" stroke="#1e3a8a" stroke-width="7" stroke-linejoin="round" />
+        </g>
+        <polygon points="324,176 332,196 354,198 338,212 342,234 324,222 306,234 310,212 294,198 316,196" fill="#c4733a" />
+      </svg>
       <span class="text-gradient">SUCCESS STUDENT ACADEMY</span>
     </a>
     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#ssa-nav" aria-controls="ssa-nav" aria-expanded="false" aria-label="Toggle navigation">
