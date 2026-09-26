@@ -2,7 +2,7 @@
   "framework": null,
   "buildCommand": "python manage.py collectstatic --noinput",
   "outputDirectory": "staticfiles",
-  "installCommand": "pip install -r requirements.txt",
+  "installCommand": "pip install --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt",
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
   "cleanUrls": false,
   "trailingSlash": false,
