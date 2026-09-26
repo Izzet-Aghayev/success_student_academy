@@ -12,7 +12,7 @@
     },
     {
       "source": "/((?!static/).*)",
-      "destination": "/config/wsgi.py"
+      "destination": "/index.py"
     }
   ],
   "headers": [
