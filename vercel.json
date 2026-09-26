@@ -1,50 +1,15 @@
 {
+  "buildCommand": null,
+  "devCommand": null,
+  "installCommand": null,
   "framework": null,
-  "buildCommand": "python manage.py collectstatic --noinput",
-  "outputDirectory": "staticfiles",
-  "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
   "cleanUrls": false,
   "trailingSlash": true,
+  "outputDirectory": null,
   "rewrites": [
     {
-      "source": "/static/(.*)",
-      "destination": "/$1"
-    },
-    {
-      "source": "/((?!static/|api/).*)",
+      "source": "/((?!api/|static/).*)",
       "destination": "/api/index.py"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/static/(.*\\.(?:css|js))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, s-maxage=604800, must-revalidate"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
-    },
-    {
-      "source": "/static/(.*\\.(?:woff2?|ttf|eot|otf|png|jpe?g|gif|svg|webp|ico|avif))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, s-maxage=31536000, immutable"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
     }
   ]
 }
