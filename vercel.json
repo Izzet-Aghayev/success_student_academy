@@ -12,7 +12,7 @@
     },
     {
       "source": "/((?!static/).*)",
-      "destination": "/index.py"
+      "destination": "/api/index.py"
     }
   ],
   "headers": [
