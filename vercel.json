@@ -1,5 +1,4 @@
 {
-  "pythonVersion": "3.12",
   "framework": null,
   "buildCommand": "python manage.py collectstatic --noinput",
   "outputDirectory": "staticfiles",
