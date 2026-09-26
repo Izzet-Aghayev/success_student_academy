@@ -191,8 +191,7 @@ def registration(request):
     if request.method == 'POST':
         form = StudentRegistrationForm(request.POST)
         if form.is_valid():
-            instance = form.save()
-            notify_registration_submission(instance)
+            notify_registration_submission(form.cleaned_data)
             messages.success(
                 request,
                 'Təşəkkür edirik! Qeydiyyatınız qəbul edildi. Komandamız qısa müddətdə sizinlə əlaqə saxlayacaq.',
@@ -212,8 +211,7 @@ def feedback(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            instance = form.save()
-            notify_feedback_submission(instance)
+            notify_feedback_submission(form.cleaned_data)
             messages.success(
                 request,
                 'Rəyiniz üçün təşəkkür edirik! Paylaşdığınız üçün minnətdarıq.',

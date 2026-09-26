@@ -1,4 +1,5 @@
 import threading
+from datetime import datetime
 
 import requests
 
@@ -55,47 +56,63 @@ def send_email_notification(subject, plain_message, html_message, from_email, re
         return False
 
 
-def _registration_telegram_text(instance):
+def _xidmet_display(data):
+    from .models import XIDMET_CHOICES
+    lookup = {k: v for k, v in XIDMET_CHOICES}
+    return lookup.get(data.get('xidmet', ''), data.get('xidmet', ''))
+
+
+def _now_str():
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+
+def _registration_telegram_text(data):
     return (
         '🎓 <b>Yeni Tələbə Qeydiyyatı</b>\n\n'
-        f'<b>Ad:</b> {instance.ad}\n'
-        f'<b>Soyad:</b> {instance.soyad}\n'
-        f'<b>Xidmət:</b> {instance.get_xidmet_display()}\n'
-        f'<b>Əlaqə nömrəsi:</b> {instance.elaqe_nomresi}\n'
-        f'<b>Mesaj:</b> {instance.mesaj or "-"}\n'
-        f'<b>Tarix:</b> {instance.created_at.strftime("%Y-%m-%d %H:%M:%S")}'
+        f'<b>Ad:</b> {data.get("ad", "")}\n'
+        f'<b>Soyad:</b> {data.get("soyad", "")}\n'
+        f'<b>Xidmət:</b> {_xidmet_display(data)}\n'
+        f'<b>Əlaqə nömrəsi:</b> {data.get("elaqe_nomresi", "")}\n'
+        f'<b>Mesaj:</b> {data.get("mesaj") or "-"}\n'
+        f'<b>Tarix:</b> {_now_str()}'
     )
 
 
-def _feedback_telegram_text(instance):
+def _feedback_telegram_text(data):
     return (
         '📝 <b>Yeni Rəy</b>\n\n'
-        f'<b>Rəy mətni:</b>\n{instance.rey_metni}\n\n'
-        f'<b>Tarix:</b> {instance.created_at.strftime("%Y-%m-%d %H:%M:%S")}'
+        f'<b>Rəy mətni:</b>\n{data.get("rey_metni", "")}\n\n'
+        f'<b>Tarix:</b> {_now_str()}'
     )
 
 
-def _registration_email(instance):
-    subject = f'Yeni Qeydiyyat — {instance.ad} {instance.soyad}'
+def _registration_email(data):
+    ad = data.get('ad', '')
+    soyad = data.get('soyad', '')
+    xidmet = _xidmet_display(data)
+    elaqe = data.get('elaqe_nomresi', '')
+    mesaj = data.get('mesaj') or '-'
+    tarix = _now_str()
+    subject = f'Yeni Qeydiyyat — {ad} {soyad}'
     plain_lines = [
-        f'Ad: {instance.ad}',
-        f'Soyad: {instance.soyad}',
-        f'Xidmət: {instance.get_xidmet_display()}',
-        f'Əlaqə nömrəsi: {instance.elaqe_nomresi}',
-        f'Mesaj: {instance.mesaj or "-"}',
-        f'Tarix: {instance.created_at.strftime("%Y-%m-%d %H:%M:%S")}',
+        f'Ad: {ad}',
+        f'Soyad: {soyad}',
+        f'Xidmət: {xidmet}',
+        f'Əlaqə nömrəsi: {elaqe}',
+        f'Mesaj: {mesaj}',
+        f'Tarix: {tarix}',
     ]
     plain_message = '\n'.join(plain_lines)
     rows_html = ''.join(
         f'<tr><td style="padding:6px 10px;font-weight:600;color:#0f172a;">{label}</td>'
         f'<td style="padding:6px 10px;color:#0f172a;">{value}</td></tr>'
         for label, value in [
-            ('Ad', instance.ad),
-            ('Soyad', instance.soyad),
-            ('Xidmət', instance.get_xidmet_display()),
-            ('Əlaqə nömrəsi', instance.elaqe_nomresi),
-            ('Mesaj', instance.mesaj or '-'),
-            ('Tarix', instance.created_at.strftime('%Y-%m-%d %H:%M:%S')),
+            ('Ad', ad),
+            ('Soyad', soyad),
+            ('Xidmət', xidmet),
+            ('Əlaqə nömrəsi', elaqe),
+            ('Mesaj', mesaj),
+            ('Tarix', tarix),
         ]
     )
     html_message = (
@@ -108,13 +125,15 @@ def _registration_email(instance):
     return subject, plain_message, html_message
 
 
-def _feedback_email(instance):
+def _feedback_email(data):
+    rey = data.get('rey_metni', '')
+    tarix = _now_str()
     subject = 'Yeni Rəy — SUCCESS STUDENT ACADEMY'
     plain_lines = [
         'Rəy mətni:',
-        instance.rey_metni,
+        rey,
         '',
-        f'Tarix: {instance.created_at.strftime("%Y-%m-%d %H:%M:%S")}',
+        f'Tarix: {tarix}',
     ]
     plain_message = '\n'.join(plain_lines)
     html_message = (
@@ -125,23 +144,23 @@ def _feedback_email(instance):
         'box-shadow:0 6px 24px rgba(15,23,42,.08);">'
         f'<p style="margin:16px 0 4px;"><b>Rəy mətni:</b></p>'
         f'<pre style="white-space:pre-wrap;margin:0;background:#f1f5f9;padding:12px;border-radius:10px;'
-        f'font-family:Arial,sans-serif;">{instance.rey_metni}</pre>'
+        f'font-family:Arial,sans-serif;">{rey}</pre>'
         f'<p style="margin:16px 0 0;color:#64748b;font-size:0.9rem;">'
-        f'Tarix: {instance.created_at.strftime("%Y-%m-%d %H:%M:%S")}</p>'
+        f'Tarix: {tarix}</p>'
         '</div></div>'
     )
     return subject, plain_message, html_message
 
 
-def notify_registration_submission(instance):
+def notify_registration_submission(data):
     token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '')
     chat_id = getattr(settings, 'TELEGRAM_CHAT_ID', '')
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@example.com')
     recipient = getattr(settings, 'CONTACT_EMAIL_RECIPIENT', from_email)
     recipients = [r.strip() for r in recipient.split(',') if r.strip()]
 
-    tg_text = _registration_telegram_text(instance)
-    subj, plain_text, html_text = _registration_email(instance)
+    tg_text = _registration_telegram_text(data)
+    subj, plain_text, html_text = _registration_email(data)
 
     t1 = threading.Thread(
         target=send_telegram_message,
@@ -157,15 +176,15 @@ def notify_registration_submission(instance):
     t2.start()
 
 
-def notify_feedback_submission(instance):
+def notify_feedback_submission(data):
     token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '')
     chat_id = getattr(settings, 'TELEGRAM_CHAT_ID', '')
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@example.com')
     recipient = getattr(settings, 'CONTACT_EMAIL_RECIPIENT', from_email)
     recipients = [r.strip() for r in recipient.split(',') if r.strip()]
 
-    tg_text = _feedback_telegram_text(instance)
-    subj, plain_text, html_text = _feedback_email(instance)
+    tg_text = _feedback_telegram_text(data)
+    subj, plain_text, html_text = _feedback_email(data)
 
     t1 = threading.Thread(
         target=send_telegram_message,
