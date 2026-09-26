@@ -120,12 +120,7 @@ STATIC_TEACHERS = [
 ]
 
 GALLERY_PROMPTS = [
-    ('students-collaborating-modern-classroom-library-sunny-day', 'Tələbələr modern sinif otağında əməkdaşlıq edir'),
-    ('physics-lab-experiment-high-school-students', 'Fizika laboratoriyasında eksperimentlər davam edir'),
-    ('teacher-explaining-math-whiteboard-students-listening', 'Riyaziyyat müəllimi lövhədə izah edir'),
-    ('robotics-club-students-arduino-soldering', 'Robotika klubu — tələbələr kodlaşdırır'),
-    ('library-study-area-university-prep-students-reading', 'Sakit kitabxana tədris sahəsi'),
-    ('graduation-ceremony-academy-students-smiling', 'Məktəbitmə mərasimi — xoşbəxt tələbələr'),
+    ...
 ]
 
 
