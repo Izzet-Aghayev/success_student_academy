@@ -129,13 +129,13 @@ STATIC_TEACHERS = [
 # ]
 
 
-def _gallery_images():
-    base = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?image_size=landscape_4_3&prompt='
-    from urllib.parse import quote
-    return [
-        {'url': base + quote(prompt), 'caption': caption}
-        for prompt, caption in GALLERY_PROMPTS
-    ]
+# def _gallery_images():
+#     base = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?image_size=landscape_4_3&prompt='
+#     from urllib.parse import quote
+#     return [
+#         {'url': base + quote(prompt), 'caption': caption}
+#         for prompt, caption in GALLERY_PROMPTS
+#     ]
 
 
 def home(request):
@@ -179,8 +179,8 @@ def teachers(request):
     return render(request, 'core/teachers.html', {'teachers': STATIC_TEACHERS})
 
 
-def gallery(request):
-    return render(request, 'core/gallery.html', {'images': _gallery_images()})
+# def gallery(request):
+#     return render(request, 'core/gallery.html', {'images': _gallery_images()})
 
 
 def contact(request):
