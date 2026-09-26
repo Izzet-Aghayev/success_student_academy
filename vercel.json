@@ -4,14 +4,14 @@
   "outputDirectory": "staticfiles",
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
   "cleanUrls": false,
-  "trailingSlash": false,
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/static/(.*)",
       "destination": "/$1"
     },
     {
-      "source": "/((?!static/).*)",
+      "source": "/((?!static/|api/).*)",
       "destination": "/api/index.py"
     }
   ],
