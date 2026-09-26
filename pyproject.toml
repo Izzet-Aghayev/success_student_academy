@@ -1,5 +1,0 @@
-[project]
-name = "app"
-version = "0.1.0"
-dependencies = [ "django>=5.0, <5.2", "python-dotenv>=1.0", "requests>=2.31", "django-crispy-forms>=2.1", "crispy-bootstrap5>=2024.2", "whitenoise>=6.6", "PyMySQL" ]
-requires-python = ">=3.10,<4.0"
