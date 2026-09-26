@@ -1,6 +1,5 @@
 {
   "framework": null,
-  "installCommand": "python -m pip install --no-cache-dir -r requirements.txt",
   "buildCommand": "python manage.py collectstatic --noinput",
   "outputDirectory": "staticfiles",
   "devCommand": "python manage.py runserver 0.0.0.0:$PORT",
